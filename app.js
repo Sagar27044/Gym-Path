@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadSchedule();
     updateDateTime();
+    displayQuoteOfTheDay();
 });
 
 document.getElementById('gymScheduleForm').addEventListener('submit', function(event) {
@@ -18,6 +19,14 @@ document.getElementById('gymScheduleForm').addEventListener('submit', function(e
     localStorage.setItem('scheduleExpiry', nextMonday);
 
     displaySchedule(schedule);
+});
+
+document.getElementById('resetButton').addEventListener('click', function() {
+    localStorage.removeItem('gymSchedule');
+    localStorage.removeItem('scheduleExpiry');
+    localStorage.removeItem('completedDays');
+    document.getElementById('gymScheduleForm').reset();
+    document.getElementById('scheduleList').innerHTML = '';
 });
 
 function loadSchedule() {
@@ -82,4 +91,21 @@ function updateDateTime() {
     const now = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     dateTimeElement.textContent = now.toLocaleDateString('en-US', options);
+}
+
+function displayQuoteOfTheDay() {
+    const quotes = [
+        "Push yourself because no one else is going to do it for you.",
+        "Success starts with self-discipline.",
+        "The body achieves what the mind believes.",
+        "Train insane or remain the same.",
+        "The only bad workout is the one that didn’t happen.",
+        "Your body can stand almost anything. It’s your mind that you have to convince.",
+        "What seems impossible today will one day become your warm-up."
+    ];
+
+    const today = new Date();
+    const quoteIndex = today.getDay(); // Use the day of the week to select a quote
+    const quoteElement = document.getElementById('quote');
+    quoteElement.textContent = quotes[quoteIndex];
 }
