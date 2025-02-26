@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gym Schedule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Gym Schedule</h1>
+        <p id="currentDateTime"></p>
+    </header>
+    <main>
+        <section id="schedule-form">
+            <h2>Set Your Weekly Schedule</h2>
+            <form id="gymScheduleForm">
+                <label for="monday">Monday:</label>
+                <input type="text" id="monday" name="monday" placeholder="e.g., Chest and Triceps"><br>
+
+                <label for="tuesday">Tuesday:</label>
+                <input type="text" id="tuesday" name="tuesday" placeholder="e.g., Back and Biceps"><br>
+
+                <label for="wednesday">Wednesday:</label>
+                <input type="text" id="wednesday" name="wednesday" placeholder="e.g., Rest"><br>
+
+                <label for="thursday">Thursday:</label>
+                <input type="text" id="thursday" name="thursday" placeholder="e.g., Legs"><br>
+
+                <label for="friday">Friday:</label>
+                <input type="text" id="friday" name="friday" placeholder="e.g., Shoulders"><br>
+
+                <label for="saturday">Saturday:</label>
+                <input type="text" id="saturday" name="saturday" placeholder="e.g., Cardio"><br>
+
+                <label for="sunday">Sunday:</label>
+                <input type="text" id="sunday" name="sunday" placeholder="e.g., Rest"><br>
+
+                <button type="submit">Save Schedule</button>
+            </form>
+        </section>
+        <section id="schedule">
+            <h2>Your Weekly Schedule</h2>
+            <ul id="scheduleList">
+                <!-- Schedule will be displayed here -->
+            </ul>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
